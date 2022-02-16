@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     res.json({
-        message: "hey hey hey"
+        message: 'hey hey hey'
     });
 });
 
@@ -30,7 +30,7 @@ app.get('/messages', (req, res) => {
     });
 });
 
-/* when we receive a post request on slash messages we are gonna take the body of the request and attempt to insert it into the database*/
+/* when we receive a post request on slash messages we are going to take the body of the request and attempt to insert it into the database*/
 app.post('/messages', (req, res) => {
     console.log(req.body);
     messages.create(req.body).then((message) => {
@@ -38,8 +38,9 @@ app.post('/messages', (req, res) => {
     }).catch((error) => {
         res.status(500);
         res.json(error);
-    })
-})
+    });
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`listening on ${port}`);
