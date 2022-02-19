@@ -24,14 +24,14 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/messages', (req, res) => {
+app.get('/get/all/messages', (req, res) => {
     messages.getAll().then((messages) => {
         res.json(messages);
     });
 });
 
 /* when we receive a post request on slash messages we are going to take the body of the request and attempt to insert it into the database*/
-app.post('/messages', (req, res) => {
+app.post('/send/messages', (req, res) => {
     console.log(req.body);
     messages.create(req.body).then((message) => {
         res.json(message);
