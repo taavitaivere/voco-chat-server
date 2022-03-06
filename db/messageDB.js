@@ -9,7 +9,7 @@ const schema = Joi.object().keys({
         .required(),
     message: Joi.string()
         .min(3)
-        .max(500)
+        .max(100)
         .required(),
 })
 const messages = db.get('messages');
